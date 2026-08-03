@@ -1,4 +1,4 @@
-<img width="1855" height="881" alt="image" src="https://github.com/user-attachments/assets/7ced9f56-7c99-4093-95e0-581e8cc0e2c9" /># Employee Attrition Dashboard for HR Analysis
+# Employee Attrition Dashboard for HR Analysis
 
 ## Overview
 One of the major problem Business or any Organization from any industry face is the Employee Attrition. It cost them huge in terms of monitory values over a period of time. Through this 2 page automated HR Dashboard I tried to help the HR department of the organization to monitor and analyze the attrition issue the organization facing and ways to resolve it, over a dataset of around 1500 employees.
