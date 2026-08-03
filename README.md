@@ -1,6 +1,6 @@
 # Employee Attrition Dashboard for HR Analysis
 
-## Overview
+## Introduction
 One of the major problem Business or any Organization from any industry face is the Employee Attrition. It cost them huge in terms of monitory values over a period of time. Through this 2 page automated HR Dashboard I tried to help the HR department of the organization to monitor and analyze the attrition issue the organization facing and ways to resolve it, over a dataset of around 1500 employees.
 
 ## Questions to Be Answered
@@ -12,8 +12,8 @@ One of the major problem Business or any Organization from any industry face is 
 A fully automatic, governed and secured dashboard.
 
 ## Dashboard Overview
-<img width="1914" height="835" alt="image" src="https://github.com/user-attachments/assets/96fb0fc0-5604-4ade-9fbf-759cfd1b798e" />
-<img width="1906" height="840" alt="image" src="https://github.com/user-attachments/assets/b52d9542-8cd5-4924-94a0-12048f083db0" />
+<img width="1909" height="822" alt="image" src="https://github.com/user-attachments/assets/ef5d49ba-ff6a-4c18-83d6-db4706a4bec2" />
+<img width="1910" height="819" alt="image" src="https://github.com/user-attachments/assets/f424ff89-e279-4d01-9248-84283069b5e0" />
 
 ## Live Dashboard
 - Dashboard App Link : https://app.fabric.microsoft.com/Redirect?action=OpenReport&appId=dd5f001b-7f1f-48a4-a6c8-94630be5d62b&reportObjectId=922fd4f3-769e-4493-bc58-4b3d3ac6d0c3&ctid=68925209-7378-4959-87b9-88ea918ae4e0&reportPage=90745bee0a00a7831092&pbi_source=appShareLink&portalSessionId=3ad205d6-25f5-44ab-bdf3-32ec54bae17f
@@ -47,7 +47,29 @@ After data transformation in Dataflow Gen 2 I had stored the data in Lakehouse, 
 
 In side Lakehouse I have managed the OneLake security to hide critical data like employee salary. 
 
+<img width="1823" height="816" alt="image" src="https://github.com/user-attachments/assets/02b888fa-3ee5-400e-9433-ce95cd587554" />
+
+
 ### Semantic Model
+Created the Semantic Model from Lakehouse and created a blank dashboard in Fabric on top of that Semantic Model. Then downloaded the dashboard and edited that dashboard to build the HR Attrition Dashboard in DirectLake mode, to auto refresh data and minimize query running time. 
+
+Upon completion the dashboard Published the dashboard in my Work-Space in Fabric. Then created a App from Fabric and Published. 
+
+### Outcomes
+After Analyzing the dataset these are the Final Outcomes:
+- The Organization's Attrition Rate is 16.1%, where average Industry Attrition rate in 10 to 15%
+- Employees from Sales department has highest Attrition Rate of 20.6%
+- Employees with 3K and Less Salary are most to leave the company 28.6%
+- Employees from 18 to 25 Age has the most Attrition 35.8%
+- People with Overtime has the Highest Attrition 30.5%
+- People who are traveling frequently for Company are leaving company with a rate of 25.5%
+- So yes there is a direct relation of these factors on the Attrition of the Organization
+
+### Resolution
+- It is found that people in Sales doing most of the Overtime and Single Handedly reaching the attrition to 37.5%. So need to revise the work schedule
+- ALso most people in Sales are leaving as they have salary 3K and less. Need to restructure the salary composition.
+- From Sales most people are Sales Representative and Sales Executive and falls under 3K to 10K range. Need restructure it as per industry compenstaion standerd.
+- Need to arrange Hybrid or WFH work structure and need to reduce the travel requirement where it is required. 
 
 
 
