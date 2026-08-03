@@ -6,6 +6,66 @@ Employee attrition is one of the major challenges faced by organizations across 
 
 ---
 
+# 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Data Source | HTTP Source |
+| Data Integration | Microsoft Fabric Dataflow Gen2 |
+| Data Storage | Microsoft Fabric Lakehouse (Delta Table) |
+| Data Validation | SQL Endpoint |
+| Semantic Layer | Microsoft Fabric Semantic Model |
+| Visualization | Microsoft Power BI |
+| Connectivity | DirectLake |
+| Security | OneLake Security |
+| Languages | SQL, DAX, Power Query (M) |
+
+---
+
+# 🏗️ Solution Architecture
+
+```text
+                 HTTP Source
+                      │
+                      ▼
+         Microsoft Fabric Dataflow Gen2
+        (Cleaning & Data Transformation)
+                      │
+                      ▼
+        Lakehouse (Delta Table Storage)
+                      │
+                      ▼
+        SQL Endpoint (Data Validation)
+                      │
+                      ▼
+          Fabric Semantic Model
+                      │
+                      ▼
+         Power BI Dashboard (DirectLake)
+                      │
+                      ▼
+          Microsoft Fabric App
+```
+
+---
+
+# ✨ Key Features
+
+- End-to-end HR Analytics solution built on Microsoft Fabric
+- Automated employee attrition analysis dashboard
+- Data ingestion from an HTTP source
+- Data transformation using Fabric Dataflow Gen2
+- Delta Table storage in Microsoft Fabric Lakehouse
+- Data validation using SQL Endpoint
+- Semantic Model for optimized reporting
+- DirectLake connectivity for high-performance analytics
+- Interactive dashboard with drill-through and cross-filtering
+- Employee segmentation by Age Group and Salary Band
+- OneLake security for protecting sensitive employee data
+- Published as a Microsoft Fabric App
+
+---
+
 ## Questions to Be Answered
 
 * What is the overall attrition rate?
@@ -120,3 +180,67 @@ These findings indicate a strong relationship between employee attrition and fac
 * Employees earning **3K or less**, particularly in Sales, show higher attrition. Consider revising compensation structures.
 * Review salary ranges for **Sales Representatives** and **Sales Executives** to ensure they align with industry standards.
 * Where feasible, introduce Hybrid or Work From Home (WFH) options and reduce unnecessary business travel.
+
+
+---
+
+# 📁 Repository Structure
+
+```text
+HR-Attrition-Analysis/
+│
+├── Dashboard/
+│   ├── hr_attrition_dashboard.pbix
+│   └── hr_attrition_dashboard.pdf
+│
+└── README.md
+```
+
+---
+
+# 📂 Files Included
+
+| File | Description |
+|------|-------------|
+| `hr_attrition_dashboard.pbix` | Editable Microsoft Power BI dashboard |
+| `hr_attrition_dashboard.pdf` | Dashboard exported in PDF format |
+| `README.md` | Project documentation |
+
+---
+
+# 🔄 Project Workflow
+
+```text
+HTTP Source
+      │
+      ▼
+Dataflow Gen2
+      │
+      ▼
+Lakehouse (Delta Table)
+      │
+      ▼
+SQL Endpoint Validation
+      │
+      ▼
+Semantic Model
+      │
+      ▼
+Power BI Dashboard (DirectLake)
+      │
+      ▼
+Microsoft Fabric App
+```
+
+---
+
+# 👨‍💻 Author
+
+**Arghyajyoti Samui**
+
+Data Analyst | Microsoft Fabric | Power BI | SQL | Python
+
+- **GitHub:** https://github.com/Arghyajyoti007
+- **LinkedIn:** *([LinkedIn Profile](https://www.linkedin.com/in/arghyajyoti-samui/))*
+
+---
