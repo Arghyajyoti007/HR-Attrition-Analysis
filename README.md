@@ -1,76 +1,122 @@
 # Employee Attrition Dashboard for HR Analysis
 
 ## Introduction
-One of the major problem Business or any Organization from any industry face is the Employee Attrition. It cost them huge in terms of monitory values over a period of time. Through this 2 page automated HR Dashboard I tried to help the HR department of the organization to monitor and analyze the attrition issue the organization facing and ways to resolve it, over a dataset of around 1500 employees.
+
+Employee attrition is one of the major challenges faced by organizations across industries. It can result in significant financial and operational costs over time. Through this two-page automated HR Dashboard, I aimed to help HR teams monitor and analyze employee attrition trends and identify the key factors contributing to employee turnover using a dataset of approximately **1,500 employees**.
+
+---
 
 ## Questions to Be Answered
-- What is the overall attrition rate?
-- Which departments are losing the most people?
-- Is there a relationship between pay, age, and the decision to leave?
+
+* What is the overall attrition rate?
+* Which departments are experiencing the highest attrition?
+* Is there a relationship between salary, age, and employee attrition?
+
+---
 
 ## Deliverables
-A fully automatic, governed and secured dashboard.
+
+A fully automated, governed, and secure HR Analytics Dashboard.
+
+---
 
 ## Dashboard Overview
-<img width="1909" height="822" alt="image" src="https://github.com/user-attachments/assets/ef5d49ba-ff6a-4c18-83d6-db4706a4bec2" />
-<img width="1910" height="819" alt="image" src="https://github.com/user-attachments/assets/f424ff89-e279-4d01-9248-84283069b5e0" />
+
+![HR Attrition Dashboard - Executive Summary](https://github.com/user-attachments/assets/ef5d49ba-ff6a-4c18-83d6-db4706a4bec2)
+
+![HR Attrition Dashboard - Detailed Analysis](https://github.com/user-attachments/assets/f424ff89-e279-4d01-9248-84283069b5e0)
+
+---
 
 ## Live Dashboard
-- Dashboard App Link : https://app.fabric.microsoft.com/Redirect?action=OpenReport&appId=dd5f001b-7f1f-48a4-a6c8-94630be5d62b&reportObjectId=922fd4f3-769e-4493-bc58-4b3d3ac6d0c3&ctid=68925209-7378-4959-87b9-88ea918ae4e0&reportPage=90745bee0a00a7831092&pbi_source=appShareLink&portalSessionId=3ad205d6-25f5-44ab-bdf3-32ec54bae17f
-- Dashboard Link : https://app.fabric.microsoft.com/links/D9bW6U3op5?ctid=68925209-7378-4959-87b9-88ea918ae4e0&pbi_source=linkShare
 
-⚠ To access the live dashboard you should have a Microsoft Account and need to get authorize. To view it you can view the dashboard from attached screenshot, uploaded .pdf version or the .pbix version. 
+* **[Open Dashboard App](https://app.fabric.microsoft.com/Redirect?action=OpenReport&appId=dd5f001b-7f1f-48a4-a6c8-94630be5d62b&reportObjectId=922fd4f3-769e-4493-bc58-4b3d3ac6d0c3&ctid=68925209-7378-4959-87b9-88ea918ae4e0&reportPage=90745bee0a00a7831092&pbi_source=appShareLink&portalSessionId=3ad205d6-25f5-44ab-bdf3-32ec54bae17f)**
+
+* **[Open Dashboard](https://app.fabric.microsoft.com/links/D9bW6U3op5?ctid=68925209-7378-4959-87b9-88ea918ae4e0&pbi_source=linkShare)**
+
+> ⚠️ **Note:** Access to the live dashboard requires a Microsoft account with appropriate permissions. If access is unavailable, you can view the dashboard using the screenshots, PDF version, or the Power BI (.pbix) file included in this repository.
+
+---
 
 ## Approach
-As per the business requirement we have a set of questions need to answer through the dashboard. Along with the analysis needed to be done what parameter affecting the attrition. 
 
-### Data Ignition: 
-I have pulled the employee data from a HTTP Source and ignite it into a Dataflow Gen 2 to do further cleaning. 
+Based on the business requirements, the dashboard was designed to answer key business questions while identifying the factors that influence employee attrition.
 
-### Dataflow Gen 2 and why?
-The dashboard will be used by HR Team. I'm assuming that the team is efficient in Power Bi, SQL, Excel. But may not be efficient in technical tools like python, pyspark, handling pipeline. In Fabric Dataflow Gen 2 gives us a opportunity to explore the same tools like Microsoft Excel Power Query, though which team can clean the dataset, remove any unnecessary data, remove nulls, fix duplicates, set the data types of each columns and add any calculated columns efficiently for better dashboarding. Also for small dataset it will help to reduce cost by removing the use of un-necessary tools. 
+### Data Ingestion
 
-Here we added two calculated columns based on existing data. 
-- Age Group : To determine and idnetify the people from which Age Group is leaving the company most
-- Salary Band : Rather than analyzing people from indivisual salary, I have put the people in seperate band and analyzed afterwards
+Employee data was pulled from an HTTP source and ingested into **Microsoft Fabric Dataflow Gen2** for data preparation and transformation.
 
-Transformation: 
-Changed the data type of the created Calculated Columns from number-text to text only for better sagrigration. 
+### Why Dataflow Gen2?
 
-Then we stored this data in lakehouse as a Delta Table.
+The dashboard is intended for HR teams. While HR professionals are generally familiar with Power BI, SQL, and Excel, they may not be comfortable working with technical tools such as Python, PySpark, or data pipelines.
 
-Dataflow Gen 2 screenshot
-<img width="1855" height="881" alt="image" src="https://github.com/user-attachments/assets/1f25da47-91a0-4bc1-9765-fdead9b237a3" />
+Microsoft Fabric Dataflow Gen2 provides an Excel-like Power Query experience, allowing users to:
 
-### Lakehouse
-After data transformation in Dataflow Gen 2 I had stored the data in Lakehouse, and after analyzing and verifying the data in SQL end points, created a Semantic Model to create dashboard. As we have small dataset I had skipped the Data Modelling phase. Created the dashboard in Power Bi on the Flat Table. 
+* Clean and transform data
+* Remove null values and duplicates
+* Set appropriate data types
+* Create calculated columns
 
-In side Lakehouse I have managed the OneLake security to hide critical data like employee salary. 
+For relatively small datasets, this approach also helps reduce unnecessary infrastructure and processing costs.
 
-<img width="1823" height="816" alt="image" src="https://github.com/user-attachments/assets/02b888fa-3ee5-400e-9433-ce95cd587554" />
+Two calculated columns were created:
 
+* **Age Group** – To identify which age groups have the highest employee attrition.
+* **Salary Band** – To analyze attrition across salary ranges instead of individual salaries.
 
-### Semantic Model
-Created the Semantic Model from Lakehouse and created a blank dashboard in Fabric on top of that Semantic Model. Then downloaded the dashboard and edited that dashboard to build the HR Attrition Dashboard in DirectLake mode, to auto refresh data and minimize query running time. 
+### Transformation
 
-Upon completion the dashboard Published the dashboard in my Work-Space in Fabric. Then created a App from Fabric and Published. 
+* Converted the calculated columns from mixed Number/Text to **Text** for better categorization.
+* Stored the transformed data in the **Lakehouse** as a Delta Table.
 
-### Outcomes
-After Analyzing the dataset these are the Final Outcomes:
-- The Organization's Attrition Rate is 16.1%, where average Industry Attrition rate in 10 to 15%
-- Employees from Sales department has highest Attrition Rate of 20.6%
-- Employees with 3K and Less Salary are most to leave the company 28.6%
-- Employees from 18 to 25 Age has the most Attrition 35.8%
-- People with Overtime has the Highest Attrition 30.5%
-- People who are traveling frequently for Company are leaving company with a rate of 25.5%
-- So yes there is a direct relation of these factors on the Attrition of the Organization
+**Dataflow Gen2**
 
-### Resolution
-- It is found that people in Sales doing most of the Overtime and Single Handedly reaching the attrition to 37.5%. So need to revise the work schedule
-- ALso most people in Sales are leaving as they have salary 3K and less. Need to restructure the salary composition.
-- From Sales most people are Sales Representative and Sales Executive and falls under 3K to 10K range. Need restructure it as per industry compenstaion standerd.
-- Need to arrange Hybrid or WFH work structure and need to reduce the travel requirement where it is required. 
+![Dataflow Gen2](https://github.com/user-attachments/assets/1f25da47-91a0-4bc1-9765-fdead9b237a3)
 
+---
 
+## Lakehouse
 
- 
+After the transformations in Dataflow Gen2, the cleaned data was stored in the **Lakehouse**. The data was validated using the SQL Endpoint before creating a Semantic Model for reporting.
+
+Since the dataset is relatively small, a separate star-schema data modeling phase was skipped, and the dashboard was built directly on the flat table.
+
+Within the Lakehouse, OneLake security was configured to restrict access to sensitive employee information such as salary data.
+
+![Lakehouse](https://github.com/user-attachments/assets/02b888fa-3ee5-400e-9433-ce95cd587554)
+
+---
+
+## Semantic Model
+
+A Semantic Model was created from the Lakehouse, and a blank Power BI report was generated in Microsoft Fabric.
+
+The report was then downloaded and developed into the HR Attrition Dashboard using **DirectLake** mode to provide faster query performance and automatic data refresh.
+
+After completion, the report was published to a Microsoft Fabric Workspace, and a Fabric App was created for end users.
+
+<img width="1823" height="809" alt="image" src="https://github.com/user-attachments/assets/5d7de104-4f0c-4d67-81e7-88ec259d6fff" />
+
+---
+
+## Outcomes
+
+Key findings from the analysis:
+
+* Overall employee attrition rate is **16.1%**, while the average industry attrition rate is approximately **10–15%**.
+* The **Sales** department has the highest attrition rate at **20.6%**.
+* Employees earning **3K or less** have the highest attrition rate (**28.6%**).
+* Employees aged **18–25** have the highest attrition rate (**35.8%**).
+* Employees working overtime have an attrition rate of **30.5%**.
+* Employees who travel frequently for work have an attrition rate of **25.5%**.
+
+These findings indicate a strong relationship between employee attrition and factors such as department, salary, age, overtime, and business travel.
+
+---
+
+## Recommendations
+
+* The Sales department has the highest overtime and contributes significantly to overall attrition. Review workload distribution and work schedules.
+* Employees earning **3K or less**, particularly in Sales, show higher attrition. Consider revising compensation structures.
+* Review salary ranges for **Sales Representatives** and **Sales Executives** to ensure they align with industry standards.
+* Where feasible, introduce Hybrid or Work From Home (WFH) options and reduce unnecessary business travel.
